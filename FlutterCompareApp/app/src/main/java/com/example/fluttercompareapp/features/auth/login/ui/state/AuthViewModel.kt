@@ -1,5 +1,9 @@
 package com.example.fluttercompareapp.features.auth.login.ui.state
 
+import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fluttercompareapp.features.auth.register.data.AuthRepository
@@ -14,8 +18,8 @@ class AuthViewModel @Inject constructor(
     private val repository: AuthRepository,
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(false)
-    val uiState: StateFlow<Boolean> = _uiState
+    var uiState by mutableStateOf(true)
+        private set
 
     init {
         subscribeToAuthChanges()
@@ -24,9 +28,15 @@ class AuthViewModel @Inject constructor(
     private fun subscribeToAuthChanges() {
         viewModelScope.launch {
             repository.subscribeToAuthChanges().collect {
-
-                _uiState.value = it != null
+                uiState = it != null
             }
+        }
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            repository.logout()
+            uiState = false
         }
     }
 

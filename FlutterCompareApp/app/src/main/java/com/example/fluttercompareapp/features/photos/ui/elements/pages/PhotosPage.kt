@@ -5,12 +5,10 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,16 +18,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.fluttercompareapp.features.auth.login.ui.state.AuthViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun PhotosPage(
     navController: NavController,
+    authViewModel: AuthViewModel = hiltViewModel(),
 ) {
 
     Scaffold(
         topBar = {
-            "hi ${FirebaseAuth.getInstance().currentUser?.email}"
+            TopAppBar(
+                title = { Text(text = "hi ${FirebaseAuth.getInstance().currentUser?.email}")},
+                actions = {
+                    IconButton(onClick = { authViewModel.logout()}) {
+                        Icon(Icons.Default.ExitToApp, contentDescription = "Logout")
+                    }
+                }
+            )
         }
     ) { padding ->
         Column(
@@ -37,7 +44,6 @@ fun PhotosPage(
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            Text(text = "matej")
 //            LazyColumn(
 //                modifier = Modifier.weight(1f)
 //            ) {
