@@ -1,4 +1,4 @@
-package com.example.fluttercompareapp.ui.theme
+package com.example.fluttercompareapp.common.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

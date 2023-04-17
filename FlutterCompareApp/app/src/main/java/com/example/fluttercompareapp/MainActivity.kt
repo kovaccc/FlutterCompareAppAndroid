@@ -10,20 +10,18 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.fluttercompareapp.ui.theme.FlutterCompareAppTheme
+import androidx.navigation.compose.rememberNavController
+import com.example.fluttercompareapp.common.ui.navigation.MainNavigation
+import com.example.fluttercompareapp.common.ui.theme.FlutterCompareAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             FlutterCompareAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+                MainNavigation()
             }
         }
     }

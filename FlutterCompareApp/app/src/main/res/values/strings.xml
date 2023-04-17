@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">FlutterCompareApp</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="already_have_account_log_in">Already have account? Log in!</string>
+    <string name="do_not_have_account_sign_up">Do not have account? Sign up!</string>
+    <string name="log_in">Login</string>
+    <string name="photo_detail">Photo detail</string>
+    <string name="unknown_error_occurred">Unknown error occurred</string>
 </resources>
