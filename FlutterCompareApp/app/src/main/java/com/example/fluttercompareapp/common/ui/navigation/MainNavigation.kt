@@ -1,10 +1,8 @@
 package com.example.fluttercompareapp.common.ui.navigation
 
 import PhotosPage
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.NavHost

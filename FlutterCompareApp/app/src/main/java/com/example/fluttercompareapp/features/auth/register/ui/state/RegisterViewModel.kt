@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fluttercompareapp.common.domain.Resource
 import com.example.fluttercompareapp.features.auth.login.ui.state.AuthUiState
-import com.example.fluttercompareapp.features.auth.register.data.AuthRepository
+import com.example.fluttercompareapp.features.auth.register.data.repositories.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

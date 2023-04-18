@@ -1,4 +1,4 @@
-package com.example.fluttercompareapp.features.auth.register.data
+package com.example.fluttercompareapp.features.auth.register.data.repositories
 
 import com.example.fluttercompareapp.common.domain.Resource
 import com.google.android.gms.safetynet.SafetyNet

@@ -1,6 +1,5 @@
 package com.example.fluttercompareapp.features.splash.ui.elements.pages
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*

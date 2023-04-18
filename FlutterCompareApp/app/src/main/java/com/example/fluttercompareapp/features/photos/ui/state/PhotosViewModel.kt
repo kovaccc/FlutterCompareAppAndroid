@@ -1,33 +1,26 @@
-package com.example.fluttercompareapp.features.auth.login.ui.state
+package com.example.fluttercompareapp.features.photos.ui.state
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fluttercompareapp.common.domain.Resource
-import com.example.fluttercompareapp.features.auth.register.data.repositories.AuthRepository
+import com.example.fluttercompareapp.features.photos.data.repositories.PhotosRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val repository: AuthRepository,
+class PhotosViewModel @Inject constructor(
+    private val repository: PhotosRepository,
 ) : ViewModel() {
 
-    var uiState by mutableStateOf(AuthUiState())
+    var uiState by mutableStateOf(PhotosUiState())
         private set
 
-    fun onEmailChanged(email: String) {
-        uiState = uiState.copy(email = email)
-    }
-
-    fun onPasswordChanged(password: String) {
-        uiState = uiState.copy(password = password)
-    }
-
-    fun login() {
+    fun getPhotos() {
         viewModelScope.launch {
             uiState = uiState.copy(
                 isLoading = true,
@@ -35,17 +28,16 @@ class LoginViewModel @Inject constructor(
             )
 
             when (val result =
-                repository.login(email = uiState.email, password = uiState.password)) {
+                repository.refreshPhotos()) {
                 is Resource.Error -> {
                     uiState = uiState.copy(
-                        success = false,
                         isLoading = false,
                         error = result.message
                     )
                 }
                 is Resource.Success -> {
                     uiState = uiState.copy(
-                        success = true,
+                        photos = result.data ?: emptyList(),
                         isLoading = false,
                         error = null
                     )
