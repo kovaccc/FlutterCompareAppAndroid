@@ -51,7 +51,6 @@ fun MapPage() {
     ) {
         val isNotGranted = it.values.contains(false)
         if (!isNotGranted) {
-
             fusedLocationClient.requestLocationUpdates(
                 locationRequest,
                 locationCallback,
