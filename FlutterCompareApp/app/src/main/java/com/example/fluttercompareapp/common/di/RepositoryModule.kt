@@ -2,8 +2,6 @@ package com.example.fluttercompareapp.common.di
 
 import com.example.fluttercompareapp.features.auth.register.data.repositories.AuthRepository
 import com.example.fluttercompareapp.features.auth.register.data.repositories.AuthRepositoryImpl
-import com.example.fluttercompareapp.features.photos.data.datasources.local.PhotosLocalDataSource
-import com.example.fluttercompareapp.features.photos.data.datasources.remote.PhotosRemoteDataSource
 import com.example.fluttercompareapp.features.photos.data.repositories.PhotosRepository
 import com.example.fluttercompareapp.features.photos.data.repositories.PhotosRepositoryImpl
 import dagger.Binds

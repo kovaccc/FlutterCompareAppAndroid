@@ -4,20 +4,22 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.example.fluttercompareapp.features.auth.login.ui.state.AuthViewModel
+import com.example.fluttercompareapp.features.photos.domain.entities.Photo
 import com.example.fluttercompareapp.features.photos.ui.elements.widgets.PhotoListItem
 import com.example.fluttercompareapp.features.photos.ui.state.PhotosViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun PhotosPage(
-    navController: NavController,
     authViewModel: AuthViewModel = hiltViewModel(),
     photosViewModel: PhotosViewModel = hiltViewModel(),
+    onPhotoClicked: (photo: Photo) -> Unit,
+    onMapsClicked: () -> Unit,
 ) {
 
     LaunchedEffect(true) {
@@ -31,6 +33,12 @@ fun PhotosPage(
                 actions = {
                     IconButton(onClick = { authViewModel.logout() }) {
                         Icon(Icons.Default.ExitToApp, contentDescription = "Logout")
+                    }
+
+                    IconButton(onClick = {
+                        onMapsClicked()
+                    }) {
+                        Icon(Icons.Default.Place, contentDescription = "Map")
                     }
                 }
             )
@@ -56,8 +64,8 @@ fun PhotosPage(
                         items = photosViewModel.uiState.photos,
                         key = { it.id }
                     ) { photo ->
-                        PhotoListItem(photo = photo, onPhotoClick = { //TODO navigate to details})
-                            return@PhotoListItem
+                        PhotoListItem(photo = photo, onPhotoClick = {
+                            onPhotoClicked(photo)
                         })
                     }
                 }

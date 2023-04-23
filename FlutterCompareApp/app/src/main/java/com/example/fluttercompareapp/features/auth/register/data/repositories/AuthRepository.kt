@@ -1,7 +1,6 @@
 package com.example.fluttercompareapp.features.auth.register.data.repositories
 
 import com.example.fluttercompareapp.common.domain.Resource
-import com.google.android.gms.safetynet.SafetyNet
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.channels.awaitClose

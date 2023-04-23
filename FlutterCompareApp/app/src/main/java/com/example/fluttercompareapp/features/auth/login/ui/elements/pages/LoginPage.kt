@@ -22,8 +22,8 @@ fun LoginPage(
 ) {
 
     LaunchedEffect(viewModel.uiState) {
-//        if (viewModel.uiState.success)
-//            navController.navigate(Screen.Photos.route)
+        if (viewModel.uiState.success)
+            navController.navigate(Screen.Photos.route)
     }
 
     Column(
