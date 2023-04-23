@@ -28,7 +28,7 @@ fun MapPage() {
     val locationRequest = LocationRequest.create().apply {
         priority = PRIORITY_HIGH_ACCURACY
         interval = 5000
-        fastestInterval = 1000
+        fastestInterval = 5000
         isWaitForAccurateLocation = true
     }
     val context = LocalContext.current
