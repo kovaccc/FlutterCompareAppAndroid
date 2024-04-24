@@ -1,9 +1,10 @@
 # FlutterCompareAppAndroid
 Android version of application that is used to compare mobile app performance across native Android using Jetpack Compose and Flutter through defined test cases to determine the best development approach based on speed and responsiveness.
 
-![Screenshot_20240424-234227](https://github.com/kovaccc/FlutterCompareAppAndroid/assets/75457058/080f6f0c-61d2-4b30-aa03-02d2065484b8)
+<img src="https://github.com/kovaccc/FlutterCompareAppAndroid/assets/75457058/080f6f0c-61d2-4b30-aa03-02d2065484b8" width="400" height="900">
 
-![Screenshot_20240424-234212](https://github.com/kovaccc/FlutterCompareAppAndroid/assets/75457058/07dbd304-f5cf-4aa6-bd1b-867e632aab95)
+<img src="https://github.com/kovaccc/FlutterCompareAppAndroid/assets/75457058/07dbd304-f5cf-4aa6-bd1b-867e632aab95" width="400" height="900">
+
 
 # Related Flutter Application
 - [FlutterCompareApp](https://github.com/kovaccc/FlutterCompareApp)
